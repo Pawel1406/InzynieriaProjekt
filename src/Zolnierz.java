@@ -2,29 +2,31 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Zolnierz extends Czlowiek {
+public abstract class Zolnierz {
     private Stopien stopien;
     private LocalDate dataPrzysiegi;
     public List<Bron> listaBroni = new ArrayList<>();
+    private boolean czyZdatnyDoSluzby;
+    private String pesel;
+    private LocalDate dataUrodzenia;
+    private String name;
 
     public Zolnierz(LocalDate dataPrzysiegi, String pesel, LocalDate dataUrodzenia, Stopien stopien, String name) {
-        super(pesel, dataUrodzenia, name);
         this.dataPrzysiegi = dataPrzysiegi;
         this.stopien = stopien;
+        this.czyZdatnyDoSluzby = true;
+        this.pesel = pesel;
+        this.dataUrodzenia = dataUrodzenia;
+        this.name = name;
     }
 
     public Zolnierz(Zolnierz zolnierz) {
-        super(zolnierz.getPesel(), zolnierz.getDataUrodzenia(), zolnierz.getName());
         this.stopien = zolnierz.stopien;
         this.dataPrzysiegi = zolnierz.dataPrzysiegi;
-    }
-
-    public void awansuj() {
-        this.stopien.awansuj();
-    }
-
-    public void PrzydzielDoJednostki(Jednostka jednostka) {
-        //TODO()
+        this.czyZdatnyDoSluzby = zolnierz.czyZdatnyDoSluzby;
+        this.pesel = zolnierz.pesel;
+        this.dataUrodzenia = zolnierz.dataUrodzenia;
+        this.name = zolnierz.name;
     }
 
     public Stopien getStopien() {
@@ -35,9 +37,29 @@ public abstract class Zolnierz extends Czlowiek {
         return dataPrzysiegi;
     }
 
+    public boolean getCzyZdatnyDoSluzby() {
+        return czyZdatnyDoSluzby;
+    }
+
+    public void setCzyZdatnyDoSluzby(boolean czyZdatnyDoSluzby) {
+        this.czyZdatnyDoSluzby = czyZdatnyDoSluzby;
+    }
+
+    public void awansuj() {
+        this.stopien = this.stopien.awansuj();
+    }
+
+    public void PrzydzielDoJednostki(Jednostka jednostka) {
+        jednostka.dodajZolnierz(this);
+    }
+
     public boolean SprawdzStanBroni() {
-        //TODO()
-        return false;
+        for (Bron bron : listaBroni) {
+            if (!bron.isSprawna()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void DodajBron(Bron bron) {
@@ -45,8 +67,9 @@ public abstract class Zolnierz extends Czlowiek {
     }
 
     public boolean wykonajRozkaz(String msg) {
-        //TODO(switchCase)
+        if (msg != null && !msg.isEmpty()) {
+            return true;
+        }
         return false;
     }
-
 }

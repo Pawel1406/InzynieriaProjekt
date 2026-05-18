@@ -1,23 +1,14 @@
 import java.time.LocalDate;
 
 public class Piechur extends Zolnierz {
-    private int iloscMagazynkow;
+    private Specjalizacja specjalizacja;
 
-    public Piechur(int iloscMagazynkow, LocalDate dataPrzysiegi, String pesel, LocalDate dataUrodzenia, Stopien stopien, String name) {
+    public Piechur(LocalDate dataPrzysiegi, String pesel, LocalDate dataUrodzenia, Stopien stopien, String name, Specjalizacja specjalizacja) {
         super(dataPrzysiegi, pesel, dataUrodzenia, stopien, name);
-        this.iloscMagazynkow = iloscMagazynkow;
+        this.specjalizacja = specjalizacja;
     }
 
-    public int getIloscMagazynkow() {
-        return iloscMagazynkow;
-    }
-
-    public void ognia() {
-        //TODO()
-    }
-
-    public boolean zajmijPozycje(String pozycja) {
-        //TODO()
-        return false;
+    public Specjalizacja getSpecjalizacja() {
+        return specjalizacja;
     }
 }
