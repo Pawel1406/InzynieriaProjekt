@@ -72,4 +72,17 @@ public abstract class Zolnierz {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Zolnierz{" +
+                "stopien=" + stopien +
+                ", dataPrzysiegi=" + dataPrzysiegi +
+                ", listaBroni=" + listaBroni +
+                ", czyZdatnyDoSluzby=" + czyZdatnyDoSluzby +
+                ", pesel='" + pesel + '\'' +
+                ", dataUrodzenia=" + dataUrodzenia +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

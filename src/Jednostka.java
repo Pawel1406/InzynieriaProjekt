@@ -26,4 +26,13 @@ public abstract class Jednostka {
         return zolnierze;
     }
     public abstract void dodaj(Jednostka jednostka);
+
+    @Override
+    public String toString() {
+        return "Jednostka{" +
+                "idJednostki='" + idJednostki + '\'' +
+                ", stan=" + stan +
+                ", zolnierze=" + zolnierze +
+                '}';
+    }
 }

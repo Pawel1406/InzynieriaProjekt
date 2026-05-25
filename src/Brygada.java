@@ -34,4 +34,11 @@ public class Brygada extends Jednostka {
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Brygada{" +
+                "podjednostki=" + podjednostki +
+                '}';
+    }
 }

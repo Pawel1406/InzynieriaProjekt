@@ -11,4 +11,9 @@ public class Piechur extends Zolnierz {
     public Specjalizacja getSpecjalizacja() {
         return specjalizacja;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

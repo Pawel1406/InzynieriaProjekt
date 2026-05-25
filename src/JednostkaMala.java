@@ -21,4 +21,9 @@ public class JednostkaMala extends Jednostka {
     public void dodaj(Jednostka jednostka) {
         throw new UnsupportedOperationException("Nie mozna dodac jednostki do malej jednostki");
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
