@@ -107,12 +107,7 @@ public class SystemDowodzenia {
             System.out.println("Nie znaleziono jednostki o ID: " + idJednostki);
         }
     }
-
-    // =========================================================
-    // --- 5 NOWYCH UŻYTECZNOŚCI ---
-    // =========================================================
-
-    // 1. Zwolnienie do rezerwy (usunięcie z listy jednostki)
+    
     public void przeniesDoRezerwy(String idJednostki, String pesel) {
         Jednostka docelowa = brygada.znajdzJednostke(idJednostki);
         if (docelowa != null) {
@@ -127,7 +122,6 @@ public class SystemDowodzenia {
         }
     }
 
-    // 2. Szpital polowy (przywraca zdatność do służby)
     public void szpitalPolowy(String idJednostki) {
         Jednostka docelowa = brygada.znajdzJednostke(idJednostki);
         if (docelowa != null) {
@@ -144,7 +138,6 @@ public class SystemDowodzenia {
         }
     }
 
-    // 3. Masowy serwis uzbrojenia w jednostce
     public void serwisUzbrojenia(String idJednostki) {
         Jednostka docelowa = brygada.znajdzJednostke(idJednostki);
         if (docelowa != null) {
@@ -163,7 +156,6 @@ public class SystemDowodzenia {
         }
     }
 
-    // 4. Analityczny raport gotowości bojowej
     public void raportGotowosciBojowej(String idJednostki) {
         Jednostka docelowa = brygada.znajdzJednostke(idJednostki);
         if (docelowa != null) {
@@ -175,7 +167,6 @@ public class SystemDowodzenia {
 
             int wPelniZdolni = 0;
             for (Zolnierz z : docelowa.getZolnierze()) {
-                // Żołnierz zdolny to taki, który jest zdatny do służby i jego broń działa
                 if (z.getCzyZdatnyDoSluzby() && z.SprawdzStanBroni()) {
                     wPelniZdolni++;
                 }
@@ -189,7 +180,7 @@ public class SystemDowodzenia {
         }
     }
 
-    // 5. Relokacja żołnierza (przeniesienie z jednostki A do B)
+
     public void przeniesZolnierza(String idObecnej, String idNowej, String pesel) {
         Jednostka zrodlo = brygada.znajdzJednostke(idObecnej);
         Jednostka cel = brygada.znajdzJednostke(idNowej);
@@ -215,7 +206,7 @@ public class SystemDowodzenia {
         }
     }
 
-    // --- ROZBUDOWANE MENU ---
+
 
     public void dajInformacje() {
         System.out.println("\n===== SYSTEM DOWODZENIA =====");
